@@ -1,0 +1,40 @@
+﻿@page "{Id}"
+@model Rema1000LagerStyringsSystem.ItemDeleteModel
+@{
+    ViewData["Title"] = "SletVare";
+}
+
+<h1>Du er ved at slette: </h1>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.item.Id" class="control-label">ID</label>
+        <input asp-for="@Model.item.Id" class="form-control" readonly/>
+    </div>
+    <div>
+        <label asp-for="@Model.item.StorageType" class="control-label">Varekategori</label>
+        <input asp-for="@Model.item.StorageType" class="form-control" readonly />
+    </div>
+    <div>
+        <label asp-for="@Model.item.Brand" class="control-label">Mærke</label>
+        <input asp-for="@Model.item.Brand" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.item.Name" class="control-label">Navn</label>
+        <input asp-for="@Model.item.Name" class="form-control" readonly/>
+    </div>
+    <div>
+        <label asp-for="@Model.item.Price" class="control-label">Pris</label>
+        <input asp-for="@Model.item.Price" class="form-control" readonly/>
+    </div>
+    <div>
+        <label asp-for="@Model.item.Quantity" class="control-label">Antal varer</label>
+        <input asp-for="@Model.item.Quantity" class="form-control" readonly />
+    </div>
+    <p></p>
+    <div class="form-group">
+        <input type="submit" value="Slet" class="btn btn-primary" />
+    </div>
+    <div>
+        <a asp-page="ItemPrint">Tilbage til alle varer</a>
+    </div>
+</form>

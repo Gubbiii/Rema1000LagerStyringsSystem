@@ -1,0 +1,33 @@
+﻿@page
+@model Rema1000LagerStyringsSystem.StatisticIndexModel
+@using Rema1000LagerStyringsSystem.Interface
+@inject IItem repository
+@{
+    ViewData["Title"] = "StatisticIndexModel";
+}
+<h1>Statistik</h1>
+
+@* <form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+    </p>
+</form> *@
+<body>
+    <div>
+        <h5>
+            Varer
+        </h5>
+        Der er i alt @repository.GetAllItems().Count varer <p></p>
+        Se varerne her:
+        <a class="nav-link text-dark" asp-area="" asp-page="/Item/ItemPrint">Varer</a>
+    </div>
+    <div>
+        <h5>
+            Varekategori
+        </h5>
+        Der er i alt @Enum.GetNames(typeof(StorageType)).Length varekategorier <p></p>
+        Se kategorierne her:
+        <a class="nav-link text-dark" asp-area="" asp-page="/StorageType/StorageTypeRead">Varekategori</a>
+    </div>
+</body>

@@ -1,0 +1,79 @@
+﻿@page
+@model Rema1000LagerStyringsSystem.ItemPrintModel
+@using Rema1000LagerStyringsSystem.Interface
+@inject IItem repository
+@{
+    ViewData["Title"] = "AlleVarer";
+}
+<h1>Alle varer</h1>
+
+<p>
+    <a asp-page="ItemCreate">Opret ny vare</a>
+</p>
+
+<form>
+    <p>
+    Søg efter varenavn:  <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Søg" />
+        <a asp-page="ItemPrint">Nulstil søgningen</a>
+    </p>
+    <p>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Varekategori
+            </th>
+            <th>
+                Mærke
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Pris
+            </th>
+            <th>
+                Antal på lageret
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.itemList)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.StorageType
+                </td>
+                <td>
+                    @item.Brand
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    <p>
+                        <a asp-page="ItemUpdate" asp-route-id="@item.Id">Redigere</a> <p></p>
+                        <a asp-page="ItemDelete" asp-route-id="@item.Id">Slet</a>
+                    </p>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
